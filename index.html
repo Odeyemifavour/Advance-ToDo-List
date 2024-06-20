@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/6275a7b774.js" crossorigin="anonymous"></script>
+    <title>To-Do List app</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="header-img"><i class="fa-solid fa-circle-check"></i></div>
+        <div class="header-text"><h1>Todo App</h1></div>
+    </header>
+   <div class="container">
+        <div id="userTaskInput">
+            <input type="text" id="userInput" placeholder="What do you want to do?">
+            <button onclick="addTask()">
+                <span id="btnImg"><i class="fa-solid fa-plus"></i></span>
+                <span id="btnText">Add</span>
+            </button>
+        </div>
+        <div id="userTask" style="display: none;">
+            <ul id="userTaskList">
+                <h3>Task</h3>
+            </ul>
+            <ul id="subMenuList" style="display: none;">
+                <li >
+                    <span class="editTask"><i class="fa-solid fa-pen"></i></span>
+                    <span class="taskText" >Edit task</span>
+                </li>
+                <li id="completedTask">
+                    <span id="checkedBtn"><i class="fa-regular fa-circle-check"></i></span>
+                    <span id="checkedTask">Mark as completed</span>
+                </li>
+                <li  id="markAsImportant">
+                    <span><i class="fa-regular fa-star" id="markAsImportantTask"></i></span>
+                    <span>Mark as important</span>
+                </li>
+                <li>
+                    <span><i class="fa-solid fa-trash"></i></span>
+                    <span>Delete task</span>
+                </li>
+            </ul>
+        </div>
+        <div id="userImportantTask" style="display: none;">
+            <ul id="userImportantTaskList">
+                <h3>Important</h3>
+                <li>
+                    <span>
+                        <span class="checkBtn"><i class="fa-regular fa-circle-check"></i></span>
+                        <span class="taskText2">important task</span>
+                    </span>
+                    <span>
+                        <span><i class="fa-regular fa-star"></i></span>
+                        <span><i class="fa-solid fa-ellipsis"></i></span>
+                    </span>
+                </li>
+            </ul>
+        </div>
+   </div> 
+   <!-- box-shadow: 20px 10px 2px black inset;
+   color: white; -->
+   <script src="script.js"></script>
+</body>
+</html>

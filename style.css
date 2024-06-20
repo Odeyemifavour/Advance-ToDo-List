@@ -1,0 +1,201 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body
+{
+    width: 100vw;
+    background: linear-gradient(to right ,#FAA0A0 , #DDA0DD ,#D8BFD8);
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+header
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 2em 0;
+}
+header div
+{
+    padding: 0 0.1em;
+}
+header .header-img
+{
+    font-size: 30px;
+}
+.container
+{
+    width: 60%;
+    margin: auto;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+}
+.container #userTaskInput
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: #EDEADE;
+    border-radius: 10px;
+    margin: 2em 0;
+}
+.container #userTaskInput input
+{
+    flex:1;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 15px;
+    padding: 20px;
+    border-radius: 10px;
+}
+.container #userTaskInput button
+{
+    font-size: 15px;
+    background-color: black;
+    color: white;
+    width: 15%;
+    padding: 20px;
+    border: none;
+    outline: none;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+.container #userTaskInput button span
+{
+    padding: 0 0.5em;
+}
+.container #userTask
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+}
+.container #userTask #userTaskList
+{
+    width: 100%;
+}
+.container #userTask #userTaskList li
+{
+    background-color: #EDEADE;
+    border-radius: 10px;
+    margin: 1em 0;
+    padding: 20px;
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    cursor: pointer;
+}
+.container #userTask #userTaskList li span
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+.container #userTask #userTaskList li span i
+{
+    padding: 0 0.2em;
+    font-size: 18px;
+}
+.container #userTask #userTaskList li span .taskText
+{
+    font-size: 15px;
+}
+.container #userTask #subMenuList 
+{
+    background-color: #EDEADE;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    float: right;
+}
+.container #userTask #subMenuList li
+{
+    list-style-type: none;
+    padding: 0.8em 0.8em;
+    cursor: pointer;
+    width: 100%;
+    font-size: 14px;
+}
+.container #userTask #subMenuList li:hover
+{
+    color: red;
+}
+.container #userTask #subMenuList li span i
+{
+    font-size: 18px;
+}
+
+#userImportantTask
+{
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+#userImportantTask #userImportantTaskList
+{
+   width: 100%;
+}
+#userImportantTask #userImportantTaskList li
+{
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    cursor: pointer;
+    background-color: #EDEADE;
+    border-radius: 10px;
+    margin: 1em 0;
+    padding: 20px;
+}
+#userImportantTask #userImportantTaskList li span
+{
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;  
+}
+
+#userImportantTask #userImportantTaskList li span i
+{
+    padding: 0 0.2em;
+    font-size: 20px;
+}
+#userImportantTask #userImportantTaskList li span.taskText
+{
+    font-size: 15px;
+}
+.active
+{
+    box-shadow: 2px 20px 2px black inset;
+   color: white;
+   background: transparent;
+   width: 20px;
+   border-radius: 20px;
+}
+.completed
+{
+    text-decoration: line-through;
+    color: blue;
+}
+.starred
+{
+    box-shadow: 20px 10px 20px yellow inset ;
+    width: 20px;
+    color: white;
+    height: 17px;
+    border-radius: 100%;
+} 
