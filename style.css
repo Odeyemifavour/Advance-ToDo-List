@@ -49,7 +49,7 @@ header .header-img
 {
     width: 80%;
     flex: 1;
-    padding: 10px;
+    padding: 20px;
     background: transparent;
     border: none;
     outline: none;
@@ -62,31 +62,89 @@ header .header-img
     background-color: black;
     color: white;
     width: 15%;
-    padding: 10px;
+    padding: 20px;
     border: none;
     outline: none;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
 }
-.container #userTask
+.container #userTask, .container #userImportantTask 
 {
     width:100%;  
 }
-.container #userTask  #userTaskList 
+.container #userTask  #userTaskList, .container #userImportantTask #userImportantTaskList
 {
     width: 100%;
 }
-.container #userTask  #userTaskList li
+.container #userTask  #userTaskList li, .container #userImportantTask #userImportantTaskList li
 {
     
-    background-color: #EDEADE;
+    background:none;
     border-radius: 10px;
     margin: 1em 0;
-    padding: 20px;
     list-style-type: none;
     cursor: pointer;
+    display: flex;
+    flex-direction: column;
 }
-.container #userTask  #userTaskList li span
+.container #userTask  #userTaskList li div,.container #userImportantTask #userImportantTaskList li div
 {
-    
+    width: 100%;
 }
+.container #userTask  #userTaskList li #list,.container #userImportantTask #userImportantTaskList li #list
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #EDEADE;
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid red;
+}
+
+.container #userTask  #userTaskList li  #list span, .container #userImportantTask #userImportantTaskList li #list span
+{
+    padding: 0 -1em;
+}
+.container #userTask  #userTaskList li  #subMenu, .container #userImportantTask #userImportantTaskList li #subMenu
+{
+    width: 20%;
+    background-color: #EDEADE;
+    margin: 2em 0;
+    display: flex;
+    justify-content: center;
+    border-radius: 10px;
+}
+.container #userTask  #userTaskList li  #subMenu .subMenuList li, .container #userImportantTask #userImportantTaskList li #subMenu li
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0.5em;
+}
+.container #userTask  #userTaskList li  #subMenu .subMenuList li span, .container #userImportantTask #userImportantTaskList li #subMenu li span
+{
+    padding: 0 0.2em;
+}
+.active
+{
+    box-shadow: 2px 20px 2px black inset;
+   color: white;
+   background: transparent;
+   width: 20px;
+   border-radius: 20px;
+}
+.completed
+{
+    text-decoration: line-through;
+    color: blue;
+}
+.starred
+{
+    box-shadow: 20px 10px 20px yellow inset ;
+    width: 20px;
+    color: white;
+    height: 17px;
+    border-radius: 100%;
+} 

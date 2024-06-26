@@ -9,9 +9,20 @@ function addTask() {
         let li = document.createElement("li");
         li.innerHTML = `
             
-
+        <div id = "list">
+            <span>
+            <span class="checkBtn"><i class="fa-regular fa-circle-check"></i></span>
+            <span class="taskText">${userInput.value}</span>
+        </span>
+        <span>
+            <span class="important"><i class="fa-regular fa-star"></i></span>
+            <span class="ellipsisMenu">
+            <i class="fa-solid fa-ellipsis"></i>
+        </span>
+        </div>
             
             
+        <div id = "subMenu">
             <ul class="subMenuList" style="display: none;">
                 <li class="editTask">
                     <span><i class="fa-solid fa-pen"></i></span>
@@ -30,6 +41,7 @@ function addTask() {
                     <span>Delete task</span>
                 </li>
             </ul>
+        </div>    
         `;
         userTaskList.appendChild(li);
         ellipsisDropDownMenu(li);
