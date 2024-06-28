@@ -10,7 +10,7 @@ function addTask() {
         li.innerHTML = `
             
         <div id = "list">
-            <span>
+        <span>
             <span class="checkBtn"><i class="fa-regular fa-circle-check"></i></span>
             <span class="taskText">${userInput.value}</span>
         </span>
@@ -29,12 +29,12 @@ function addTask() {
                     <span>Edit task</span>
                 </li>
                 <li class="completedTask">
-                    <span><i class="fa-regular fa-circle-check"></i></span>
-                    <span>Mark as completed</span>
+                    <span class="completedBtn" ><i class="fa-regular fa-circle-check"></i></span>
+                    <span class="completedText">Mark as completed</span>
                 </li>
                 <li class="markAsImportant">
-                    <span><i class="fa-regular fa-star"></i></span>
-                    <span>Mark as important</span>
+                    <span class="starBtn"><i class="fa-regular fa-star"></i></span>
+                    <span class="importantText" >Mark as important</span>
                 </li>
                 <li class="deleteTask">
                     <span><i class="fa-solid fa-trash"></i></span>
@@ -43,6 +43,7 @@ function addTask() {
             </ul>
         </div>    
         `;
+        li.setAttribute("id", "listItem");
         userTaskList.appendChild(li);
         ellipsisDropDownMenu(li);
         editTask(li);
@@ -50,6 +51,7 @@ function addTask() {
         importantTask(li);
         deleteTask(li);
         userTask.style.display = "block";
+
     }
     userInput.value = "";
 }
@@ -80,6 +82,7 @@ function editTask(taskElement) {
             taskText.textContent = editedTask.trim();
             subMenuList.style.display = 'none';
         }
+
     });
 }
 
@@ -87,30 +90,48 @@ function taskCompletionCheck(taskElement) {
     const checkBtn = taskElement.querySelector('.checkBtn');
     const taskText = taskElement.querySelector('.taskText');
     const subMenuListItem = taskElement.querySelector('.completedTask');
+    const completedBtn = taskElement.querySelector('.completedBtn');
+    const completedText = taskElement.querySelector('.completedText');
 
     checkBtn.addEventListener('click', () => {
         checkBtn.classList.toggle('active');
         taskText.classList.toggle('completed');
+        completedBtn.classList.toggle('active');
+        completedText.classList.toggle('completed');
     });
+    taskText.addEventListener('click',()=>{
+        checkBtn.classList.toggle('active');
+        taskText.classList.toggle('completed');
+        completedBtn.classList.toggle('active');
+        completedText.classList.toggle('completed');
+    })
 
     subMenuListItem.addEventListener('click', () => {
         checkBtn.classList.toggle('active');
         taskText.classList.toggle('completed');
+        completedBtn.classList.toggle('active');
+        completedText.classList.toggle('completed');
         taskElement.querySelector('.subMenuList').style.display = 'none';
     });
+
+    
 }
 
 function importantTask(taskElement) {
     const importantBtn = taskElement.querySelector('.important');
     const importantIcon = taskElement.querySelector('.fa-star');
     const markAsImportantItem = taskElement.querySelector('.markAsImportant');
+    const starBtn = taskElement.querySelector('.starBtn');
+    const importantText = taskElement.querySelector('.importantBtn');
 
     importantBtn.addEventListener('click', () => {
+        starBtn.classList.toggle('starred');
         toggleImportant(taskElement, importantIcon);
     });
 
     markAsImportantItem.addEventListener('click', () => {
         toggleImportant(taskElement, importantIcon);
+        starBtn.classList.toggle('starred');
         taskElement.querySelector('.subMenuList').style.display = 'none';
     });
 }
@@ -145,3 +166,17 @@ function deleteTask(taskElement) {
         }
     });
 }
+function saveTasksToLocalStorage() {
+    const tasks = [];
+    const taskItems = document.querySelectorAll('#userTaskList li, #userImportantTaskList li');
+
+    taskItems.forEach(taskItem => {
+        const taskText = taskItem.querySelector('.taskText').textContent;
+        const isCompleted = taskItem.querySelector('.taskText').classList.contains('completed');
+        const isImportant = taskItem.querySelector('.fa-star').classList.contains('starred');
+
+        tasks.push({ taskText, isCompleted, isImportant });
+    });
+
+}
+
